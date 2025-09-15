@@ -2,7 +2,6 @@ const mongodb = require("../data/database.js");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAll = async (req, res) => {
-    console.log("👉 Entró a getAll de /users");
     const result = await mongodb.getDatabase().collection("users").find();
     result.toArray().then((users) => {
         res.setHeader("Content-Type", "application/json");
